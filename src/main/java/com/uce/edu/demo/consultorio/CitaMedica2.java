@@ -2,24 +2,19 @@ package com.uce.edu.demo.consultorio;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class CitaMedica {
+public class CitaMedica2 {
 
 	private LocalDateTime fechaCita;
 	
-	private Doctor doctor;
-	private Paciente paciente;
-	
-	//2) Por Constructor
-	public CitaMedica(Doctor doctor, Paciente paciente) {
-		this.doctor=doctor;
-		this.paciente=paciente;
-	}
-	
-	
+	// 3) DI por metodo set
+	private Doctor doctor;       //3)a su metodo SET le pongo @autowired
+	private Paciente paciente;   //3)a su metodo SET le pongo @autowired
+		
 	public String agendar(LocalDateTime fechaCita,String nombre, String apellido,int edad,
 			String ciudad,String nombrePaciente, int edadPaciente) {
 		
@@ -37,7 +32,7 @@ public class CitaMedica {
 		
 
 		//se inserta la cita en la base de datos
-		return "Cita agendada";
+		return "Cita agendada 2";
 	}
 
 	//SET y GET
@@ -45,7 +40,7 @@ public class CitaMedica {
 	public Doctor getDoctor() {
 		return doctor;
 	}
-
+    @Autowired
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
@@ -53,7 +48,7 @@ public class CitaMedica {
 	public Paciente getPaciente() {
 		return paciente;
 	}
-
+	@Autowired
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
