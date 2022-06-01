@@ -16,7 +16,7 @@ import com.uce.edu.demo.matricula.Matricula3;
 @SpringBootApplication
 public class ProyectoU1KtApplication implements CommandLineRunner {
 
-//  1) DI por atributo
+//  1) DI por Atributo
 //	@Autowired
 //	private CitaMedica cita;
 
@@ -25,7 +25,7 @@ public class ProyectoU1KtApplication implements CommandLineRunner {
 //	private CitaMedica2 cita;
 
 //-------------------------------------------
-//  1) DI por atributo
+//  1) DI por Atributo
 	@Autowired
 	private Matricula3 matricula1;
 
