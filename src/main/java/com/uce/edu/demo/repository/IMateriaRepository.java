@@ -6,14 +6,14 @@ public interface IMateriaRepository {
 
 	//CRUD
 		//C: crear/insertar
-		public void insertar(Materia e);
+		public void insertar(Materia m);
 		
 		//R: leer/buscar
-		public Materia buscar(String apellido);
+		public Materia buscar(String nombre);
 		
 		//U: actualizar
-		public void actualizar(Materia e);
+		public void actualizar(Materia m);
 			
 		//D: eliminar
-		public void eliminar(String cedula);
+		public void eliminar(String nombre);
 }

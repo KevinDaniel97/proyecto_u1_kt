@@ -1,41 +1,45 @@
 package com.uce.edu.demo.repository;
 
-import com.uce.edu.demo.modelo.Estudiante;
+import org.springframework.stereotype.Repository;
 
-public class MatriculaRepositoryImpl {
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.modelo.Matricula;
+
+@Repository
+public class MatriculaRepositoryImpl implements IMatriculaRepository{
 	
 	@Override
-	public void insertar(Estudiante e) {
+	public void insertar(Matricula mt) {
 		// TODO Auto-generated method stub
 		//Aqui se hace la insercion en la base de datos
-		System.out.println("se ha insertado el estudiante: "+e);
+		System.out.println("se ha insertado la matricula: "+mt);
 	}
 
 	@Override
-	public Estudiante buscar(String apellido) {
+	public Matricula buscar(String numero) {
 		// TODO Auto-generated method stub
 		//Aqui se hace la busqueda en la base de datos
-		System.out.println("se ha buscado el estudiante: "+apellido);
-		Estudiante e= new Estudiante();
-		e.setApellido(apellido);
-		return null;
+		System.out.println("se ha buscado la matricula: "+numero);
+		Matricula mt= new Matricula();
+		mt.setNumero(numero);
+		return mt;
 	}
 
 	@Override
-	public void actualizar(Estudiante e) {
+	public void actualizar(Matricula mt) {
 		// TODO Auto-generated method stub
 		//Aqui se hace le actualiza en la base de datos
-		System.out.println("se ha actualizado el estudiante: "+e);
+		System.out.println("se ha actualizado la matricula: "+mt);
 		
 	}
 
 	@Override
-	public void eliminar(String cedula) {
+	public void eliminar(String numero) {
 		// TODO Auto-generated method stub
 		//Aqui se hace la eliminado en la base de datos
-		System.out.println("se ha eliminado el estudiante: "+cedula);
+		System.out.println("se ha eliminado la matricula: "+numero);
 	}
 
-}
+
 
 }

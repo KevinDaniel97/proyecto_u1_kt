@@ -3,7 +3,7 @@ package com.uce.edu.demo.modelo;
 public class Materia {
 
 	private String nombre;
-	private int semestre;
+	private String semestre;
 
 	
 	//SET y GET
@@ -14,11 +14,18 @@ public class Materia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getSemestre() {
+	public String getSemestre() {
 		return semestre;
 	}
-	public void setSemestre(int semestre) {
+	public void setSemestre(String semestre) {
 		this.semestre = semestre;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Materia [nombre=" + nombre + ", semestre=" + semestre + "]";
+	}
+	
 	
 }

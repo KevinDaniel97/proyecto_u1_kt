@@ -12,7 +12,8 @@ public class EstudianteServiceImpl implements IEstudianteService{
 
 	@Autowired
 	private IEstudianteRepository estudianteRepository;
-	
+
+	@Override
 	public void ingresarEstudiante(Estudiante e) {
 		// TODO Auto-generated method stub
 		this.estudianteRepository.insertar(e);
@@ -21,20 +22,21 @@ public class EstudianteServiceImpl implements IEstudianteService{
 	@Override
 	public Estudiante buscarPorApellido(String apellido) {
 		// TODO Auto-generated method stub
-		return this.buscarPorApellido(apellido);
+		return this.estudianteRepository.buscar(apellido);
 	}
 
 	@Override
 	public void actualizarEstudiante(Estudiante e) {
 		// TODO Auto-generated method stub
-		this.estuRepository.actualizar(e);
-		
+		this.estudianteRepository.actualizar(e);
 	}
 
 	@Override
 	public void borrarEstudiante(String cedula) {
 		// TODO Auto-generated method stub
-		this.estuRepository.eliminar(cedula);
+		this.estudianteRepository.eliminar(cedula);
 	}
+
+
 
 }

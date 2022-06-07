@@ -7,14 +7,14 @@ public interface IMatriculaRepository {
 	
 	//CRUD
 		//C: crear/insertar
-		public void insertar(Matricula e);
+		public void insertar(Matricula mt);
 		
 		//R: leer/buscar
-		public Matricula buscar(String apellido);
+		public Matricula buscar(String numero);
 		
 		//U: actualizar
-		public void actualizar(Matricula e);
+		public void actualizar(Matricula mt);
 			
 		//D: eliminar
-		public void eliminar(String cedula);
+		public void eliminar(String numero);
 }

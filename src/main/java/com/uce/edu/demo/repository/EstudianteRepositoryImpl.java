@@ -21,7 +21,7 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 		System.out.println("se ha buscado el estudiante: "+apellido);
 		Estudiante e= new Estudiante();
 		e.setApellido(apellido);
-		return null;
+		return e;
 	}
 
 	@Override

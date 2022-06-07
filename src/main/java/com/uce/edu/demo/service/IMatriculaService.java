@@ -10,7 +10,7 @@ public interface IMatriculaService {
 	public Matricula buscarMatricula(String numero);
 	
 
-	public void actualizarMattricula(Matricula mt);
+	public void actualizarMatricula(Matricula mt);
 		
 
 	public void borrarMatricula(String numero);

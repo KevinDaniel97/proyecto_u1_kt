@@ -1,31 +1,31 @@
 package com.uce.edu.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.uce.edu.demo.modelo.Estudiante;
-import com.uce.edu.demo.repository.IEstudianteRepository;
+import org.springframework.stereotype.Service;
+import com.uce.edu.demo.modelo.Matricula;
 import com.uce.edu.demo.repository.IMatriculaRepository;
 
-public class MatriculaServiceImpl {
+@Service
+public class MatriculaServiceImpl implements IMatriculaService{
 
 	@Autowired
 	private IMatriculaRepository matriculaRepository;
 	
-	public void ingresarEstudiante(Estudiante e) {
+	public void ingresarMatricula(Matricula mt) {
 		// TODO Auto-generated method stub
-		this.matriculaRepository.insertar(m);
+		this.matriculaRepository.insertar(mt);
 	}
 
 	@Override
-	public Estudiante Matricula(String apellido) {
+	public Matricula buscarMatricula(String numero) {
 		// TODO Auto-generated method stub
-		return this.Matricula(numero);
+		return this.matriculaRepository.buscar(numero);
 	}
 
 	@Override
-	public void actualizarMatricula(Matricula e) {
+	public void actualizarMatricula(Matricula mt) {
 		// TODO Auto-generated method stub
-		this.matriculaRepository.actualizar(e);
+		this.matriculaRepository.actualizar(mt);
 		
 	}
 
