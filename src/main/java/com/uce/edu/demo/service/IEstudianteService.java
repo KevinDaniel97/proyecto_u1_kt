@@ -1,6 +1,6 @@
 package com.uce.edu.demo.service;
 
-import com.uce.edu.demo.matricula.Estudiante;
+import com.uce.edu.demo.modelo.Estudiante;
 
 public interface IEstudianteService {
 
@@ -14,6 +14,6 @@ public interface IEstudianteService {
 		public void actualizarEstudiante(Estudiante e);
 			
 	
-		public void eliminarEstudiante(String cedula);
+		public void borrarEstudiante(String cedula);
 	
 }

@@ -12,31 +12,14 @@ import com.uce.edu.demo.consultorio.CitaMedica2;
 import com.uce.edu.demo.matricula.Matricula;
 import com.uce.edu.demo.matricula.Matricula2;
 import com.uce.edu.demo.matricula.Matricula3;
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.service.IEstudianteService;
 
 @SpringBootApplication
 public class ProyectoU1KtApplication implements CommandLineRunner {
-
-//  1) DI por Atributo
-//	@Autowired
-//	private CitaMedica cita;
-
-//  2) DI por constructor
-//	@Autowired
-//	private CitaMedica2 cita;
-
-//-------------------------------------------
-//  1) DI por Atributo
-	@Autowired
-	private Matricula3 matricula1;
-
-//  2) DI por metodo SET
-	@Autowired
-	private Matricula2 matricula2;
 	
-//  3) DI por contructor
 	@Autowired
-	private Matricula matricula3;
-
+	private IEstudianteService estudianteService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1KtApplication.class, args);
@@ -44,22 +27,32 @@ public class ProyectoU1KtApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println("Mi primer proyecto con spring framework");
+		
+		Estudiante e =new Estudiante();
+		Estudiante e1 =new Estudiante();
 
-		//String respuesta = cita.agendar(LocalDateTime.now(), "Javier", "Teran", 32, "Quito", "Pepito", 14);
-		//System.out.println(respuesta);
-		String respuesta = matricula1.matricular(LocalDateTime.now(), "Kevin", "Toapanta", LocalDateTime.now(), "Programacion Avanzada", 6);
-		System.out.println(respuesta);
+
+		this.estudianteService.ingresarEstudiante(e);
+		e.setNombre("Kevin");
+		e.setApellido("Toapanta");
+		e.setCedula("1725845869");
+		this.estudianteService.ingresarEstudiante(e);
 		
-		String respuesta2 = matricula2.matricular(LocalDateTime.now(), "Kevin", "Toapanta", LocalDateTime.now(), "Programacion Avanzada", 6);
-		System.out.println(respuesta2);
+		this.estudianteService.ingresarEstudiante(e);
+		e.setNombre("Pepito");
+		e.setApellido("Perez");
+		e.setCedula("101548869");
 		
-		String respuesta3 = matricula3.matricular(LocalDateTime.now(), "Kevin", "Toapanta", LocalDateTime.now(), "Programacion Avanzada", 6);
-		System.out.println(respuesta3);
+		this.estudianteService.ingresarEstudiante(e1);
 		
 		
-	
+		//usamos los 3 metodos restantes
+		
+		e.setCedula("1725845866");
+		this.estudianteService.actualizarEstudiante(e1);
+		
+		this.estudianteService.buscarPorApellido("Toapanta");
+		this.estudianteService.borrarEstudiante("1725845869");
 	}
 
 }

@@ -1,12 +1,9 @@
 package com.uce.edu.demo.repository;
 
-import org.springframework.stereotype.Repository;
-
 import com.uce.edu.demo.modelo.Estudiante;
 
-@Repository
-public class EstudianteRepositoryImpl implements IEstudianteRepository{
-
+public class MatriculaRepositoryImpl {
+	
 	@Override
 	public void insertar(Estudiante e) {
 		// TODO Auto-generated method stub
@@ -38,5 +35,7 @@ public class EstudianteRepositoryImpl implements IEstudianteRepository{
 		//Aqui se hace la eliminado en la base de datos
 		System.out.println("se ha eliminado el estudiante: "+cedula);
 	}
+
+}
 
 }

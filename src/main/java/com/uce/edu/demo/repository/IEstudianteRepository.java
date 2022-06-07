@@ -1,18 +1,22 @@
 package com.uce.edu.demo.repository;
 
-import com.uce.edu.demo.matricula.Estudiante;
+import com.uce.edu.demo.modelo.Estudiante;
+
 
 public interface IEstudianteRepository {
-//CRUD
+	
+	
+	
+	//CRUD
 	//C: crear/insertar
 	public void insertar(Estudiante e);
 	
 	//R: leer/buscar
 	public Estudiante buscar(String apellido);
 	
-	//R: actualizar
+	//U: actualizar
 	public void actualizar(Estudiante e);
 		
-	//R: eliminar
+	//D: eliminar
 	public void eliminar(String cedula);
 }
