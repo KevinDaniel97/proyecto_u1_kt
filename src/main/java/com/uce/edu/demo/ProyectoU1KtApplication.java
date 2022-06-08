@@ -1,11 +1,16 @@
 package com.uce.edu.demo;
 
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.demo.banco.repository.ITransferenciaRepository;
+import com.uce.edu.demo.banco.service.IDepositoService;
+import com.uce.edu.demo.banco.service.ITransferenciaService;
 import com.uce.edu.demo.modelo.Estudiante;
 import com.uce.edu.demo.modelo.Materia;
 import com.uce.edu.demo.modelo.Matricula;
@@ -17,13 +22,10 @@ import com.uce.edu.demo.service.IMatriculaService;
 public class ProyectoU1KtApplication implements CommandLineRunner {
 	
 	@Autowired
-	private IEstudianteService estudianteService;
+	private ITransferenciaService iTransferenciaService;
 	
-	@Autowired
-	private IMateriaService materiaService;
 	
-	@Autowired
-	private IMatriculaService matriculaService;
+	private IDepositoService depositoService; 
 	
 	
 	public static void main(String[] args) {
@@ -32,62 +34,12 @@ public class ProyectoU1KtApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
-		//ESTUDIANTE 1
-		System.out.println("ESTUDIANTE");
-		Estudiante e =new Estudiante();	
-		e.setNombre("Kevin");
-		e.setApellido("Toapanta");
-		e.setCedula("1725845869");
-		this.estudianteService.ingresarEstudiante(e);
-		//ESTUDIANTE 2
-		Estudiante e1 =new Estudiante();
-		e1.setNombre("Pepito");
-		e1.setApellido("Perez");
-		e1.setCedula("101548869");
-		this.estudianteService.ingresarEstudiante(e1);
-		
-		//usamos los 3 metodos restantes para estudiante
-		
-		e.setCedula("1725845866");
-		this.estudianteService.actualizarEstudiante(e1);
-		this.estudianteService.buscarPorApellido("Toapanta");
-		this.estudianteService.borrarEstudiante("1725845869");
-
-//-----------------------------------------------------------------
-		
-		//MATERIA 
-		System.out.println("MATERIA");
-		Materia m =new Materia();	
-		m.setNombre("Programacion");
-		m.setSemestre("Sexto");
-		this.materiaService.ingresarMateria(m);
+		// TODO Auto-generated method stub
+		this.iTransferenciaService.realizarTransferencia("12", "13", new BigDecimal(20));
 	
-		
-		//usamos los 3 metodos restantes para materia
-		m.setNombre("Programacion");
-		this.materiaService.actualizarMateria(m);
-		this.materiaService.buscarPorNombre("Programacion");
-		this.materiaService.borrarMateria("Programacion");
-			
-//-----------------------------------------------------------------		
-		//MATRICULA
-		System.out.println("MATRICULA");
-		Matricula mt =new Matricula();	
-		mt.setNumero("001");
-		mt.setEstudiante(e);
-		this.matriculaService.ingresarMatricula(mt);
-		
-		//usamos los 3 metodos restantes para Matricula
-		mt.setNumero("Programacion");
-		this.matriculaService.actualizarMatricula(mt);
-		this.matriculaService.buscarMatricula("Programacion");
-		this.matriculaService.borrarMatricula("Programacion");
-		
-		
-	
-	
-	
+		this.depositoService.realizarDeposito("14", new BigDecimal(50));
 	}
+
+	
 
 }
