@@ -9,19 +9,30 @@ import com.uce.edu.demo.banco.repository.ICuentaBancariaRepository;
 @Service
 public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 
+
 	@Autowired
 	private ICuentaBancariaRepository bancariaRepository;
 	
 	@Override
-	public void actualizar(CuentaBancaria c) {
+	public void ingresarCuentaBancaria(CuentaBancaria c) {
 		// TODO Auto-generated method stub
-		this.bancariaRepository.actualizar(c);
+		this.bancariaRepository.insertar(c);
 	}
 
 	@Override
 	public CuentaBancaria buscar(String numero) {
 		// TODO Auto-generated method stub
 		return this.bancariaRepository.buscar(numero);
+	}
+	@Override
+	public void actualizar(CuentaBancaria c) {
+		// TODO Auto-generated method stub
+		this.bancariaRepository.actualizar(c);
+	}
+	@Override
+	public void borrarCuentaBancaria(String numero) {
+		// TODO Auto-generated method stub
+		this.bancariaRepository.eliminar(numero);
 	}
 
 }

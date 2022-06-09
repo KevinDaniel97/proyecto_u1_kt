@@ -31,7 +31,23 @@ public class DepositoServiceImpl implements IDepositoService{
 		deposito.setFecha(LocalDateTime.now());
 		deposito.setNumeroCuentaDestino(numeroCtaDestino);
 		deposito.setMonto(monto);
-		this.depositoRepository.insertarDeposito(deposito);
+		this.depositoRepository.insertar(deposito);
 	}
 
+	@Override
+	public Deposito buscarDeposito(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		return this.depositoRepository.buscar(numeroCtaDestino);
+	}
+	@Override
+	public void actualizarDeposito(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		this.depositoRepository.actualizar(numeroCtaDestino);
+	}
+	@Override
+	public void borrarDeposito(String numeroCtaDestino) {
+		// TODO Auto-generated method stub
+		this.depositoRepository.eliminar(numeroCtaDestino);
+	}
+	
 }

@@ -42,4 +42,27 @@ public class TransferenciaServiceImpl implements ITransferenciaService{
 		t.setFechaTransferencia(LocalDateTime.now());
 		this.iTranferenciaRepository.insertar(t);
 	}
+	
+	@Override
+	public Transferencia buscarPorNumero(String ctaOrigen) {
+		// TODO Auto-generated method stub
+		return this.iTranferenciaRepository.buscar(ctaOrigen);
+	}
+
+
+	@Override
+	public void actualizar(String ctaOrigen) {
+		// TODO Auto-generated method stub
+		this.iTranferenciaRepository.actualizar(ctaOrigen);
+
+	}
+
+	@Override
+	public void borrarCuentaBancaria(String ctaOrigen) {
+		// TODO Auto-generated method stub
+		this.iTranferenciaRepository.eliminar(ctaOrigen);
+
+	}
+	
+	
 }

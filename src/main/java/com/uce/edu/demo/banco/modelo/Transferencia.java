@@ -38,6 +38,8 @@ public class Transferencia {
 	public void setFechaTransferencia(LocalDateTime fechaTransferencia) {
 		this.fechaTransferencia = fechaTransferencia;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "Transferencia [numeroCuentaOrigen=" + numeroCuentaOrigen + ", numeroCuentaDestino="
