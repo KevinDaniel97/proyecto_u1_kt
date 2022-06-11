@@ -1,6 +1,9 @@
 package com.uce.edu.demo.banco.repository;
 
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import com.uce.edu.demo.banco.modelo.Transferencia;
 
 public interface ITransferenciaRepository {
@@ -17,4 +20,6 @@ public interface ITransferenciaRepository {
 		
 	//D: eliminar
 	public void eliminar(String numeroCuentaOrigen);
-}
+	
+	public List<Transferencia> consultar(String cuenta,LocalDateTime fechaInicio, LocalDateTime fechaFin);
+};

@@ -2,6 +2,7 @@ package com.uce.edu.demo.banco.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,20 @@ public class TransferenciaServiceImpl implements ITransferenciaService{
 	
 	//Como la logica de CuentaBancariaService no hace nada\
 	//si puedo inyectar el Cuenta BnacariaRepository
+	
+	@Autowired
+	private ITransferenciaService itransaferenciaService;
+	
 	@Autowired
 	private ICuentaBancariaService bancariaService;
 	@Autowired
 	private ITransferenciaRepository iTranferenciaRepository;
+	@Autowired
+	private IDepositoService depositoRepository;
+	@Autowired
+	private IRetiroService iRetiroRepository;
+	
+	
 	
 	@Override
 	public void realizarTransferencia(String ctaOrigen, String ctaDestino, BigDecimal monto) {
@@ -62,6 +73,13 @@ public class TransferenciaServiceImpl implements ITransferenciaService{
 		// TODO Auto-generated method stub
 		this.iTranferenciaRepository.eliminar(ctaOrigen);
 
+	}
+
+	@Override
+	public List<Transferencia> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		// TODO Auto-generated method stub
+		//no hay ninguna logica del negocio
+		return this.iTranferenciaRepository.consultar(cuenta, fechaInicio, fechaFin);
 	}
 	
 	

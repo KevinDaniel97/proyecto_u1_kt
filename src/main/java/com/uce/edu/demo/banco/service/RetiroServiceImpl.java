@@ -32,7 +32,6 @@ public class RetiroServiceImpl implements IRetiroService{
 		BigDecimal saldoFinal= saldoOrigen.subtract(monto);
 		cuentaOrigen.setSaldo(saldoFinal);
 		this.bancariaService.actualizar(cuentaOrigen);
-		
 	
 	}
 

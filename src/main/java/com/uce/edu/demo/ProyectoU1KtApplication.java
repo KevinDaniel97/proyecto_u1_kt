@@ -40,7 +40,9 @@ public class ProyectoU1KtApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
+		
 		System.out.println("TRANSFERENCIA");
+		
 		this.iTransferenciaService.realizarTransferencia("12", "13", new BigDecimal(55));
 		this.iTransferenciaService.buscarPorNumero("12");
 		this.iTransferenciaService.actualizar("12");
