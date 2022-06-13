@@ -17,9 +17,7 @@ public class TransferenciaServiceImpl implements ITransferenciaService{
 	//Como la logica de CuentaBancariaService no hace nada\
 	//si puedo inyectar el Cuenta BnacariaRepository
 	
-	@Autowired
-	private ITransferenciaService itransaferenciaService;
-	
+
 	@Autowired
 	private ICuentaBancariaService bancariaService;
 	@Autowired

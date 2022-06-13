@@ -14,7 +14,7 @@ public interface ITransaccion {
 	
 	public void retiro(String ctaRetiro, BigDecimal monto);
 	
-	public List<TransaccionTo> consulta(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin);
+	public List<TransaccionTo> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin);
 	
 	
 }

@@ -11,42 +11,52 @@ import org.springframework.stereotype.Service;
 import com.uce.edu.demo.banco.modelo.Deposito;
 import com.uce.edu.demo.banco.modelo.Retiro;
 import com.uce.edu.demo.banco.modelo.Transferencia;
+import com.uce.edu.demo.banco.repository.IDepositoRespository;
+import com.uce.edu.demo.banco.repository.IRetiroRepository;
+import com.uce.edu.demo.banco.repository.ITransferenciaRepository;
 import com.uce.edu.demo.banco.to.TransaccionTo;
 
 @Service
 public class TransaccionServiceImpl  implements ITransaccion{
 	
 	@Autowired
-	private ITransferenciaService itransferenciaService;
+	private ITransferenciaService iTransferenciaService;
 	@Autowired
-	private IDepositoService idepositoService;
+	private IDepositoService iDepositoService;
 	@Autowired
-	private IRetiroService iretiroService;
-
+	private ITransferenciaRepository iTransferenciaRepository;
+	@Autowired
+	private IDepositoRespository depositoRespository;
+	@Autowired
+	private IRetiroRepository iRetiroRepository;
+	@Autowired
+	private IRetiroService iRetiroService;
+	
+	
 	@Override
 	public void transferencia(String origen, String destino, BigDecimal monto) {
 		// TODO Auto-generated method stub
-		this.itransferenciaService.realizarTransferencia(origen, destino, monto);
+		this.iTransferenciaService.realizarTransferencia(origen, destino, monto);
 	}
 
 	@Override
 	public void deposito(String destino, BigDecimal monto) {
 		// TODO Auto-generated method stub
-		this.idepositoService.realizarDeposito(destino, monto);
+		this.iDepositoService.realizarDeposito(destino, monto);
 	}
 
 	@Override
 	public void retiro(String ctaRetiro, BigDecimal monto) {
 		// TODO Auto-generated method stub
-		this.iretiroService.realizarRetiro(ctaRetiro, monto);
+		this.iRetiroService.realizarRetiro(ctaRetiro, monto);
 	}
 
 	@Override
-	public List<TransaccionTo> consulta(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+	public List<TransaccionTo> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		// TODO Auto-generated method stub
-		List<Transferencia> listaTrans =null;
-		List<Deposito> listaDepo=null;
-		List<Retiro> listaReti=null;
+		List<Transferencia> listaTrans =this.iTransferenciaRepository.consultar(cuenta, fechaInicio, fechaFin);
+		List<Deposito> listaDepo=this.depositoRespository.consultar(cuenta, fechaInicio, fechaFin);
+		List<Retiro> listaReti=this.iRetiroRepository.consultar(cuenta, fechaInicio, fechaFin);
 		
 		//vamos a unir todas las listas
 		List<TransaccionTo> listaFinal=new ArrayList<>();
