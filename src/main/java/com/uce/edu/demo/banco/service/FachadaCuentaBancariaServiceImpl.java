@@ -18,22 +18,29 @@ public class FachadaCuentaBancariaServiceImpl implements IFachadaCuentaBancaria{
 	@Qualifier("ahorros")
 	private ICuentaBancariaService bancariaServiceA;
 	@Autowired
+	@Qualifier("futuro")
+	private ICuentaBancariaService bancariaServiceF;
+	
+	
+	@Autowired
 	private ICuentaBancariaRepository bancariaRepository;
 	
 	@Override
 	public BigDecimal calcaularInteres(String numeroCta) {
 		// TODO Auto-generated method stub
-		
-		BigDecimal interes= new BigDecimal(100);
+		 
+		BigDecimal interes= null;
 		CuentaBancaria cta= this.bancariaRepository.buscar(numeroCta);
 		if(cta.getTipo().equals("A")) {
 			//Ahorros
-			this.bancariaServiceA.calcularInteres(numeroCta, cta.getSaldo());
-		}else {
+			interes= this.bancariaServiceA.calcularInteres(numeroCta, cta.getSaldo());
+		}else if(cta.getTipo().equals("C")){
 			//Corriente
 			interes= this.bancariaService.calcularInteres(numeroCta, cta.getSaldo());
+		}else if(cta.getTipo().equals("F")){
+			//Ahorro Futuro
+			interes= this.bancariaServiceF.calcularInteres(numeroCta, cta.getSaldo());
 		}
-		
 		return interes;
 	}
 	

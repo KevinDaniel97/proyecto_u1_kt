@@ -2,12 +2,10 @@ package com.uce.edu.demo.banco.service;
 
 import java.math.BigDecimal;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
-import com.uce.edu.demo.banco.repository.ICuentaBancariaRepository;
 @Service
 @Qualifier("corriente")
 public class CuentaBancariaCorrienteServicesImpl  implements ICuentaBancariaService{

@@ -45,7 +45,7 @@ public class ProyectoU1KtApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		
 		BigDecimal interes=this.bancaria.calcaularInteres("1234");
-		System.out.println(interes);
+		System.out.println("Ahorro Futuro: "+interes);
 		
 	
 	
