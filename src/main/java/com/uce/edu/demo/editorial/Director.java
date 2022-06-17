@@ -1,21 +1,21 @@
-package com.uce.edu.demo.modelo;
+package com.uce.edu.demo.editorial;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class ProfesorMateria {
-
+@Scope(value=ConfigurableBeanFactory.SCOPE_SINGLETON)
+public class Director {
 	private String nombre;
 	private String apellido;
 	
+	
 	@Override
 	public String toString() {
-		return "ProfesorMateria [nombre=" + nombre + ", apellido=" + apellido + "]";
+		return "Director [nombre=" + nombre + ", apellido=" + apellido + "]";
 	}
-	//	set y get
+	//set y get
 	public String getNombre() {
 		return nombre;
 	}

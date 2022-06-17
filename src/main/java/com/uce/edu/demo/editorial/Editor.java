@@ -1,4 +1,4 @@
-package com.uce.edu.demo.modelo;
+package com.uce.edu.demo.editorial;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -6,16 +6,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class ProfesorMateria {
-
+public class Editor {
+	
 	private String nombre;
 	private String apellido;
 	
+
+	
 	@Override
 	public String toString() {
-		return "ProfesorMateria [nombre=" + nombre + ", apellido=" + apellido + "]";
+		return "Editor [nombre=" + nombre + ", apellido=" + apellido + "]";
 	}
-	//	set y get
+	//set y get
 	public String getNombre() {
 		return nombre;
 	}
@@ -28,5 +30,6 @@ public class ProfesorMateria {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	
 	
 }

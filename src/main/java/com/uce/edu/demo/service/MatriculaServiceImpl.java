@@ -20,8 +20,8 @@ public class MatriculaServiceImpl implements IMatriculaService{
 	
 	public void ingresarMatricula(Matricula mt) {
 		// TODO Auto-generated method stub
-		System.out.println("DI desde Service Singleton"+this.profesorGeneral);
-		System.out.println("DI desde Service Prototype"+this.profesorMateria);
+		System.out.println("DI desde Service Singleton "+this.profesorGeneral);
+		System.out.println("DI desde Service Prototype "+this.profesorMateria);
 
 		this.iMatriculaRepository.insertar(mt);
 		
