@@ -1,6 +1,7 @@
 package com.uce.edu.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
 import com.uce.edu.demo.modelo.Matricula;
 import com.uce.edu.demo.modelo.ProfesorGeneral;
@@ -18,10 +19,26 @@ public class MatriculaServiceImpl implements IMatriculaService{
 	@Autowired
 	private ProfesorMateria profesorMateria;
 	
+	@Lookup
+	public ProfesorGeneral obtenerProfesorG() {
+		System.out.println("*****************");
+		return null;
+	}
+	
+	@Lookup
+	public ProfesorMateria obtenerProfesorM() {
+		ProfesorMateria profeM= new ProfesorMateria();
+				profeM.setApellido("Tapia");
+				profeM.setNombre("Jose");
+				System.out.println("*****************");
+				return profeM;
+	}
 	public void ingresarMatricula(Matricula mt) {
 		// TODO Auto-generated method stub
 		System.out.println("DI desde Service Singleton "+this.profesorGeneral);
 		System.out.println("DI desde Service Prototype "+this.profesorMateria);
+		System.out.println("DI un metodo General "+this.obtenerProfesorG());
+		System.out.println("DI un metodo Materia "+this.obtenerProfesorM());
 
 		this.iMatriculaRepository.insertar(mt);
 		
@@ -29,7 +46,7 @@ public class MatriculaServiceImpl implements IMatriculaService{
 
 	@Override
 	public Matricula buscarMatricula(String numero) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stubb
 		return this.iMatriculaRepository.buscar(numero);
 	}
 
@@ -37,7 +54,6 @@ public class MatriculaServiceImpl implements IMatriculaService{
 	public void actualizarMatricula(Matricula mt) {
 		// TODO Auto-generated method stub
 		this.iMatriculaRepository.actualizar(mt);
-		
 	}
 
 	@Override

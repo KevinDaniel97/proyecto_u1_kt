@@ -1,41 +1,41 @@
 package com.uce.edu.demo;
 
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-import com.uce.edu.demo.editorial.Contrato;
-import com.uce.edu.demo.editorial.Director;
-import com.uce.edu.demo.editorial.Editor;
-import com.uce.edu.demo.editorial.Trabajador;
 import com.uce.edu.demo.editorial.Service.IContratoService;
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.modelo.Materia;
+import com.uce.edu.demo.modelo.Matricula;
+import com.uce.edu.demo.modelo.ProfesorGeneral;
+import com.uce.edu.demo.modelo.ProfesorMateria;
+import com.uce.edu.demo.service.IMatriculaService;
 
 
 @SpringBootApplication
 public class ProyectoU1KtApplication implements CommandLineRunner {
+	
+	
+	@Autowired
+	private ProfesorGeneral general;
 
 	@Autowired
-	private Director director;
-	
+	private ProfesorGeneral general1;
+
 	@Autowired
-	private Director director1;
-	
+	private ProfesorMateria materia;
+
 	@Autowired
-	private Editor editor;
-	
+	private ProfesorMateria materia1;
+
 	@Autowired
-	private Editor editor1;
-	
-	@Autowired
-	private IContratoService iContratoService;
+	private IMatriculaService iMatriculaService;
+
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1KtApplication.class, args);
@@ -44,36 +44,32 @@ public class ProyectoU1KtApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("------>EJPEMPLO SINGLETON");
-		System.out.println();
-		this.director.setNombre("Kevin");
-		this.director.setApellido("Toapanta");
-		System.out.println(this.director1);
+		System.out.println("EJPEMPLO SINGLETON");
+		this.general.setNombre("Kevin");
+		this.general.setApellido("Toapanta");
+	
+		System.out.println(this.general1);
 		System.out.println("--------------");
-		System.out.println(this.director1);
-		this.director1.setNombre("Daniel");
+		System.out.println(this.general1);
+		this.general1.setNombre("Pepito");
 		System.out.println("--------------");
-		System.out.println(this.director);
+		System.out.println(this.general);
 		System.out.println("--------------");
-		System.out.println(this.director1);
-		System.out.println();
-		System.out.println("------>EJPEMPLO POTOTIPE");
-		System.out.println();
-		this.editor.setNombre("Daniel");
-		this.editor.setApellido("Lopez");
-		System.out.println(this.editor);
+		System.out.println(this.general1);
+
+		System.out.println("EJPEMPLO POTOTIPE");
+		this.materia.setNombre("Daniel");
+		this.materia.setApellido("Teran");
+		System.out.println(this.materia);
 		System.out.println("-----------------");
-		System.out.println(this.editor1);
-		System.out.println("------------------");
-	
-		Contrato contrato11=new Contrato();
-		contrato11.setTrabajador(new Trabajador());
-		contrato11.setArea(new ArrayList<>());
-		contrato11.setNumero("1234");
-		this.iContratoService.ingresarContrato(contrato11);
+		System.out.println(this.materia1);
+
+
+		Matricula matricula1=new Matricula();
+		matricula1.setEstudiante(new Estudiante());
+		matricula1.setMateria(new ArrayList<Materia>());
+		matricula1.setNumero("1234");
+		this.iMatriculaService.ingresarMatricula(matricula1);
 	}
-
-
-	
 
 }
